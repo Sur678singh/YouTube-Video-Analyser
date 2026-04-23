@@ -1,0 +1,9 @@
+youtube-transcript-api
+uvicorn
+python-dotenv
+langchain-text-splitters
+langchain-tavily
+langchain-huggingface
+langchain-core
+langchain
+fastapi

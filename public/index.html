@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoRAG - AI Video Intelligence</title>
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="shortcut icon" href="/public/youtube.jpg" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🎯</span>
+                <span class="logo-text">VideoRAG</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Ask Questions. Get Insights.</h1>
+            <p class="hero-subtitle">Intelligent YouTube Video Analysis Powered by AI</p>
+            <button class="cta-button" onclick="scrollToDemo()">Get Started</button>
+        </div>
+        <div class="hero-background">
+            <div class="gradient-blob blob-1"></div>
+            <div class="gradient-blob blob-2"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="features-container">
+            <h2 class="section-title">Why VideoRAG?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Extract Knowledge</h3>
+                    <p>Automatically extract and index video transcripts for instant retrieval</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Answers</h3>
+                    <p>Get accurate answers using advanced language models and RAG technology</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Experience instant responses powered by semantic search and embeddings</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Context Aware</h3>
+                    <p>Get answers based on actual video content with source context</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Summarization</h3>
+                    <p>Generate concise summaries of any YouTube video instantly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multi-Language</h3>
+                    <p>Works with videos in English and other languages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="demo-container">
+            <h2 class="section-title">Try It Now</h2>
+            <p class="demo-subtitle">Enter a YouTube video ID and ask any question about its content</p>
+            
+            <div class="demo-card">
+                <form class="query-form" onsubmit="handleQuery(event)">
+                    <div class="form-group">
+                        <label for="videoId" class="form-label">YouTube Video ID</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="videoId" 
+                                placeholder="e.g., SJKr7BPOXY0" 
+                                class="form-input"
+                                value=""
+                            >
+                            <span class="input-info">📝</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="question" class="form-label">Ask Your Question</label>
+                        <div class="input-wrapper">
+                            <textarea 
+                                id="question" 
+                                placeholder="What is this video about? Summarize the main points..." 
+                                class="form-input form-textarea"
+                                rows="4"
+                            ></textarea>
+                            <span class="input-info">💬</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">Analyze Video</span>
+                        <span class="button-icon">→</span>
+                    </button>
+                </form>
+
+                <div id="responseArea" class="response-area" style="display: none;">
+                    <div class="response-header">
+                        <h3>Response</h3>
+                        <button class="close-response" onclick="closeResponse()">✕</button>
+                    </div>
+                    <div id="responseContent" class="response-content"></div>
+                    <div id="sourceInfo" class="source-info"></div>
+                </div>
+
+                <div id="loadingArea" class="loading-area" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Processing your question...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Extract</h3>
+                    <p>Fetch YouTube video transcript and break it into meaningful chunks</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Embed</h3>
+                    <p>Convert text chunks into vector embeddings using ML models</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Retrieve</h3>
+                    <p>Find most relevant chunks using semantic similarity search</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Generate</h3>
+                    <p>Feed context to AI model to generate accurate, contextual answers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 VideoRAG. Powered by LangChain & HuggingFace.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy</a>
+                <a href="#" class="footer-link">Terms</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/public/script.js"></script>
+</body>
+</html>
