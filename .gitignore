@@ -1,4 +1,5 @@
 # Environment variables
 .env
 # Python cache
-__pycache__\__webresearchagent.cpython-313.pyc__
+pycache/
+*.pyc
